@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "patients")
 data class PatientEntity(
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
 
     val name: String,
@@ -13,5 +13,4 @@ data class PatientEntity(
     val thirdName: String,
     val birthDate: String,
     val linkedImagesIds: String,
-
     )

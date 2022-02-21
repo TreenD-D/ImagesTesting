@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.Material3.Light">
         <item name="colorPrimary">@color/appPrimary</item>
         <item name="colorPrimaryVariant">@color/appPrimaryVariant</item>
         <item name="colorOnPrimary">@color/contentOnColor</item>

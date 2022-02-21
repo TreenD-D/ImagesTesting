@@ -6,14 +6,25 @@ import ru.imagestestingapp.feature.splash.SplashFlowFragment
 import ru.imagestestingapp.feature.splash.SplashFragment
 import pro.appcraft.lib.navigation.getFragmentScreen
 import com.github.terrakok.cicerone.androidx.ActivityScreen
+import ru.imagestestingapp.feature.addpatient.AddPatientFragment
+import ru.imagestestingapp.feature.patientslist.PatientsFlowFragment
+import ru.imagestestingapp.feature.patientslist.PatientsListFragment
 
 object Screens {
     object Flow {
         fun splash() = SplashFlowFragment::class.getFragmentScreen()
+
+        fun patients() = PatientsFlowFragment::class.getFragmentScreen()
     }
 
     object Screen {
         fun splash() = SplashFragment::class.getFragmentScreen()
+
+        fun patients() = PatientsListFragment::class.getFragmentScreen()
+
+        fun addPatient(patientId: Long?) = AddPatientFragment::class.getFragmentScreen(
+            AddPatientFragment.KEY_PATIENT_ID to patientId
+        )
     }
 
     // External action intents

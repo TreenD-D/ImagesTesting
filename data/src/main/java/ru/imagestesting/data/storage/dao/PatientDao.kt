@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
 import kotlinx.coroutines.flow.Flow
 import ru.imagestesting.data.storage.entity.PatientEntity
 
@@ -20,4 +21,10 @@ interface PatientDao {
 
     @Query("DELETE FROM patients")
     suspend fun drop()
+
+    @Query("DELETE FROM patients WHERE id=:id")
+    fun deleteSinglePatient(id: Long)
+
+    @Update
+    suspend fun update(patientEntity: PatientEntity)
 }

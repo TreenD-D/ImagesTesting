@@ -26,6 +26,20 @@
     <string name="open_folder">Открыть папку</string>
     <string name="open_file">Открыть файл</string>
     <string name="share">Поделиться</string>
+    <string name="main_screen">Основной экран</string>
+    <string name="setting_desc">Настройки</string>
+    <string name="add_patient">Добавить пациента</string>
+    <string name="add_patient_title">Редактировать данные</string>
+    <string name="lastname_hint">Фамилия <font color='#FF8585'>*</font></string>
+    <string name="name_hint">Имя</string>
+    <string name="birthdate_hint">Дата рождения</string>
+    <string name="middlename_hint">Отчество</string>
+    <string name="back">Отмена</string>
+    <string name="cancel">Отмена</string>
+    <string name="delete_patient_dialog_title">Удалить все данные пациента?</string>
+    <string name="required_field_error">*Обязательное поле</string>
+    <string name="date_error">*Некорректная дата</string>
+    <string name="edit_patient">Изменить данные</string>
 
     <!-- App strings section -->
 

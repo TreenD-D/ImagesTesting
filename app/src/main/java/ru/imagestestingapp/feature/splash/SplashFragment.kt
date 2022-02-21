@@ -5,6 +5,7 @@ import android.view.View
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import ru.imagestestingapp.Screens
 import ru.imagestestingapp.databinding.FragmentSplashBinding
 import ru.imagestestingapp.global.ui.fragment.BaseFragment
 import ru.imagestestingapp.global.utils.BindingProvider
@@ -29,7 +30,7 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
         // )
 
         // Navigate to the next screen
-        // navigation.newRootFlow(Screens.Flow.navigation())
+        navigation.newRootFlow(Screens.Flow.patients())
     }
 
     private fun startFirstAnimation() {
