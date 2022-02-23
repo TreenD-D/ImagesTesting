@@ -3,6 +3,7 @@ package ru.imagestestingapp.di
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import ru.imagestestingapp.feature.AppViewModel
+import ru.imagestestingapp.feature.activeimagering.ActiveImageringViewModel
 import ru.imagestestingapp.feature.addpatient.AddPatientViewModel
 import ru.imagestestingapp.feature.imagesselect.ImagesSelectionViewModel
 import ru.imagestestingapp.feature.patientscreen.PatientScreenViewModel
@@ -23,4 +24,5 @@ internal val viewModelModule = module {
     viewModel { SettingsViewModel(get(), get(), get(), get(), get()) }
     viewModel { TestingViewModel(get(), get(), get(), get()) }
     viewModel { ImagesSelectionViewModel(get(), get(), get(), get(), get(), get(), get()) }
+    viewModel { ActiveImageringViewModel(get(), get(), get(), get(), get(), get()) }
 }

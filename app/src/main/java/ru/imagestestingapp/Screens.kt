@@ -7,6 +7,8 @@ import ru.imagestestingapp.feature.splash.SplashFragment
 import pro.appcraft.lib.navigation.getFragmentScreen
 import com.github.terrakok.cicerone.androidx.ActivityScreen
 import ru.imagestesting.domain.model.enums.ImagesType
+import ru.imagestestingapp.feature.activeimagering.ActiveImageringFragment
+import ru.imagestestingapp.feature.activeimagering.preselect.TestTypeSelectFragment
 import ru.imagestestingapp.feature.addpatient.AddPatientFragment
 import ru.imagestestingapp.feature.imagesselect.ImagesSelectionFragment
 import ru.imagestestingapp.feature.patientscreen.PatientScreenFragment
@@ -41,10 +43,21 @@ object Screens {
 
         fun settings() = SettingsFragment::class.getFragmentScreen()
 
-        fun selectImages(patientId: Long, imagesType: ImagesType) = ImagesSelectionFragment::class.getFragmentScreen(
-            ImagesSelectionFragment.KEY_PATIENT_ID to patientId,
-            ImagesSelectionFragment.KEY_IMAGES_TYPE to imagesType
+        fun selectImages(patientId: Long, imagesType: ImagesType) =
+            ImagesSelectionFragment::class.getFragmentScreen(
+                ImagesSelectionFragment.KEY_PATIENT_ID to patientId,
+                ImagesSelectionFragment.KEY_IMAGES_TYPE to imagesType
+            )
+
+        fun testTypeSelect(patientId: Long) = TestTypeSelectFragment::class.getFragmentScreen(
+            TestTypeSelectFragment.KEY_PATIENT_ID to patientId
         )
+
+        fun activeImagering(patientId: Long, imagesType: ImagesType) =
+            ActiveImageringFragment::class.getFragmentScreen(
+                ActiveImageringFragment.KEY_PATIENT_ID to patientId,
+                ActiveImageringFragment.KEY_IMAGES_TYPE to imagesType
+            )
 
     }
 

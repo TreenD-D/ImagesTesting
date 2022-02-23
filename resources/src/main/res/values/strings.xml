@@ -57,6 +57,12 @@
     <string name="main_image_duration_hint">Время показа картинки(сек.)</string>
     <string name="wait_duration_hint">Время между картинками(сек.)</string>
     <string name="save_settings">Сохранить настройки</string>
+    <string name="type_select">Выбор типа</string>
+    <string name="objects">Объекты</string>
+    <string name="actions">Действия</string>
+    <string name="start">Начать тест</string>
+    <string name="continue_btn">Продолжить</string>
+    <string name="stop">Остановить тест</string>
 
 
 </resources>

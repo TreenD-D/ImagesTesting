@@ -48,6 +48,9 @@ class PatientScreenFragment : BaseFragment<FragmentPatientScreenBinding>() {
         binding.testingButton.setOnClickListener {
             navigation.navigateTo(Screens.Screen.testing(patientId))
         }
+        binding.activeImageringButton.setOnClickListener {
+            navigation.navigateTo(Screens.Screen.testTypeSelect(patientId))
+        }
     }
 
 
