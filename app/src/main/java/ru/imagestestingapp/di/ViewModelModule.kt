@@ -20,7 +20,7 @@ internal val viewModelModule = module {
     viewModel { PatientsListViewModel(get(), get(), get(), get()) }
     viewModel { AddPatientViewModel(get(), get(), get(), get(), get(), get(), get()) }
     viewModel { PatientScreenViewModel(get(), get(), get(), get()) }
-    viewModel { SettingsViewModel(get(), get(), get(), get()) }
+    viewModel { SettingsViewModel(get(), get(), get(), get(), get()) }
     viewModel { TestingViewModel(get(), get(), get(), get()) }
     viewModel { ImagesSelectionViewModel(get(), get(), get(), get(), get(), get(), get()) }
 }

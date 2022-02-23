@@ -12,6 +12,8 @@ import ru.imagestesting.domain.interactor.patient.GetPatientsUseCase
 import ru.imagestesting.domain.interactor.patient.UpdateActionsUseCase
 import ru.imagestesting.domain.interactor.patient.UpdateObjectsUseCase
 import ru.imagestesting.domain.interactor.patient.UpdatePatientUseCase
+import ru.imagestesting.domain.interactor.settings.GetSettingsUseCase
+import ru.imagestesting.domain.interactor.settings.SetSettingsUseCase
 
 internal val interactorModule = module {
     single { GetAuthorizationTokenUseCase(get(), get()) }
@@ -26,4 +28,6 @@ internal val interactorModule = module {
     single { GetObjectsUseCase(get(), get()) }
     single { UpdateActionsUseCase(get(), get()) }
     single { UpdateObjectsUseCase(get(), get()) }
+    single { GetSettingsUseCase(get(), get()) }
+    single { SetSettingsUseCase(get(), get()) }
 }

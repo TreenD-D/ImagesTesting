@@ -12,18 +12,7 @@ class TestingViewModel(
     private val errorHandler: ErrorHandler,
     private val notifier: Notifier,
     private val eventDispatcher: EventDispatcher
-) : LoaderViewModel(), EventDispatcher.EventListener {
+) : LoaderViewModel() {
 
-    init {
-        eventDispatcher.addEventListener(Event.ImagesListSelected::class, this)
-    }
-
-    override fun onEvent(event: Event) {
-        TODO("Not yet implemented")
-    }
-
-    override fun onCleared() {
-        eventDispatcher.removeEventListener(this)
-        super.onCleared()
-    }
+    //currently not used
 }

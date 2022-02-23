@@ -28,6 +28,8 @@
     <string name="share">Поделиться</string>
     <string name="main_screen">Основной экран</string>
     <string name="setting_desc">Настройки</string>
+
+    <!-- App strings section -->
     <string name="add_patient">Добавить пациента</string>
     <string name="add_patient_title">Редактировать данные</string>
     <string name="lastname_hint">Фамилия <font color='#FF8585'>*</font></string>
@@ -49,7 +51,12 @@
     <string name="object_select">Выбор объектов</string>
     <string name="actions_select">Выбор действий</string>
     <string name="confirm">Подтвердить выбор</string>
+    <string name="settings_title">Настройки</string>
+    <string name="randomize_images_switch">Перемешать картинки при показе</string>
+    <string name="play_sound_switch">Звуковой сигнал между картинками</string>
+    <string name="main_image_duration_hint">Время показа картинки(сек.)</string>
+    <string name="wait_duration_hint">Время между картинками(сек.)</string>
+    <string name="save_settings">Сохранить настройки</string>
 
-    <!-- App strings section -->
 
 </resources>

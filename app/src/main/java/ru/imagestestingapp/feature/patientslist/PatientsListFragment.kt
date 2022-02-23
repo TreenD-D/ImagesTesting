@@ -59,6 +59,9 @@ class PatientsListFragment : BaseFragment<FragmentPatientsListBinding>() {
         binding.addNewPatientButton.setOnClickListener {
             navigation.navigateTo(Screens.Screen.addPatient(null))
         }
+        binding.settingsIcon.setOnClickListener {
+            navigation.navigateTo(Screens.Screen.settings())
+        }
     }
 
 }
