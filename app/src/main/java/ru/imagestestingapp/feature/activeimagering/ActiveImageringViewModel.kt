@@ -32,11 +32,13 @@ class ActiveImageringViewModel(
     val imagesList = _imagesList.asLiveData()
 
     fun initTestResources(patientId: Long, imagesType: ImagesType) {
+        var randomizeImages = false
         viewModelScope.launch {
             getSettingsUseCase.invoke()
                 .fold(
                     {
                         _savedSettings.value = it
+                        randomizeImages = it.isImageRandomized
                     },
                     {
                         onError(it)
@@ -50,7 +52,10 @@ class ActiveImageringViewModel(
                                 it.map { item ->
                                     val result = OBJECTS_ASSET + item
                                     result
-                                }.also { _imagesList.value = it }
+                                }.also {
+                                    if (randomizeImages) _imagesList.value = it.shuffled()
+                                    else _imagesList.value = it
+                                }
                             },
                             {
                                 onError(it)
@@ -64,7 +69,10 @@ class ActiveImageringViewModel(
                                 it.map { item ->
                                     val result = ACTIONS_ASSET + item
                                     result
-                                }.also { _imagesList.value = it }
+                                }.also {
+                                    if (randomizeImages) _imagesList.value = it.shuffled()
+                                    else _imagesList.value = it
+                                }
                             },
                             {
                                 onError(it)

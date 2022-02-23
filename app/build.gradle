@@ -4,7 +4,7 @@ plugins {
     id 'kotlin-kapt'
     id 'kotlinx-serialization'
     // id 'com.google.gms.google-services'
-    id 'com.google.firebase.crashlytics'
+//    id 'com.google.firebase.crashlytics'
 }
 
 ext.APK_NAME = 'ImagesTesting'
@@ -41,7 +41,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.config
             manifestPlaceholders = [
-                    enableCrashReporting: "true",
+                    enableCrashReporting: "false",
                     usesCleartextTraffic: "true",
             ]
         }
@@ -49,14 +49,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.config
             manifestPlaceholders = [
-                    enableCrashReporting: "true",
+                    enableCrashReporting: "false",
                     usesCleartextTraffic: "false",
             ]
         }
     }
 
     lintOptions {
-        abortOnError true
+        abortOnError false
         checkAllWarnings true
         ignoreWarnings false
         warningsAsErrors false

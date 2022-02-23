@@ -29,7 +29,7 @@ class PreferencesWrapper(private val preferences: FlowSharedPreferences) {
     val randomizeImages: Preference<Boolean>
         get() = preferences.getBoolean(RANDOMIZE_IMAGES, false)
     val playSound: Preference<Boolean>
-        get() = preferences.getBoolean(PLAY_SOUND, false)
+        get() = preferences.getBoolean(PLAY_SOUND, true)
     val imageDuration: Preference<Float>
         get() = preferences.getFloat(IMAGE_DURATION, 2.0f)
     val waitDuration: Preference<Float>
