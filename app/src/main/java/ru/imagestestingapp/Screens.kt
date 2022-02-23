@@ -6,9 +6,14 @@ import ru.imagestestingapp.feature.splash.SplashFlowFragment
 import ru.imagestestingapp.feature.splash.SplashFragment
 import pro.appcraft.lib.navigation.getFragmentScreen
 import com.github.terrakok.cicerone.androidx.ActivityScreen
+import ru.imagestesting.domain.model.enums.ImagesType
 import ru.imagestestingapp.feature.addpatient.AddPatientFragment
+import ru.imagestestingapp.feature.imagesselect.ImagesSelectionFragment
+import ru.imagestestingapp.feature.patientscreen.PatientScreenFragment
 import ru.imagestestingapp.feature.patientslist.PatientsFlowFragment
 import ru.imagestestingapp.feature.patientslist.PatientsListFragment
+import ru.imagestestingapp.feature.settings.SettingsFragment
+import ru.imagestestingapp.feature.testing.TestingFragment
 
 object Screens {
     object Flow {
@@ -25,6 +30,22 @@ object Screens {
         fun addPatient(patientId: Long?) = AddPatientFragment::class.getFragmentScreen(
             AddPatientFragment.KEY_PATIENT_ID to patientId
         )
+
+        fun patientScreen(patientId: Long) = PatientScreenFragment::class.getFragmentScreen(
+            PatientScreenFragment.KEY_PATIENT_ID to patientId
+        )
+
+        fun testing(patientId: Long) = TestingFragment::class.getFragmentScreen(
+            TestingFragment.KEY_PATIENT_ID to patientId
+        )
+
+        fun settings() = SettingsFragment::class.getFragmentScreen()
+
+        fun selectImages(patientId: Long, imagesType: ImagesType) = ImagesSelectionFragment::class.getFragmentScreen(
+            ImagesSelectionFragment.KEY_PATIENT_ID to patientId,
+            ImagesSelectionFragment.KEY_IMAGES_TYPE to imagesType
+        )
+
     }
 
     // External action intents
@@ -74,19 +95,20 @@ object Screens {
         }
 
         @Suppress("unused")
-        fun shareText(text: String, header: String? = null) = ActivityScreen("actionShareText") { context ->
-            Intent.createChooser(
-                Intent(
-                    Intent.ACTION_SEND
-                ).apply {
-                    putExtra(Intent.EXTRA_TEXT, text)
-                    putExtra("sms_body", text)
-                    addFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT)
-                    type = "text/plain"
-                },
-                header ?: context.resources.getString(R.string.share)
-            )
-        }
+        fun shareText(text: String, header: String? = null) =
+            ActivityScreen("actionShareText") { context ->
+                Intent.createChooser(
+                    Intent(
+                        Intent.ACTION_SEND
+                    ).apply {
+                        putExtra(Intent.EXTRA_TEXT, text)
+                        putExtra("sms_body", text)
+                        addFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT)
+                        type = "text/plain"
+                    },
+                    header ?: context.resources.getString(R.string.share)
+                )
+            }
 
         @Suppress("unused")
         fun shareFile(uri: Uri, mimeType: String) = ActivityScreen("actionShareFile") { context ->

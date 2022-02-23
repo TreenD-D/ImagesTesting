@@ -16,7 +16,7 @@
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/topAppBar"
-            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            style="@style/Widget.MaterialComponents.Toolbar.Surface"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize">
 
@@ -28,7 +28,7 @@
                 android:text="@string/main_screen"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/settings_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -36,6 +36,7 @@
                 android:contentDescription="@string/setting_desc"
                 android:paddingStart="16dp"
                 android:paddingEnd="17dp"
+                app:tint="@color/appPrimary"
                 app:srcCompat="@drawable/ic_baseline_settings_24" />
         </com.google.android.material.appbar.MaterialToolbar>
 

@@ -38,7 +38,7 @@ class PatientsListFragment : BaseFragment<FragmentPatientsListBinding>() {
         fastAdapter.onClickListener =
             { v: View?, _: IAdapter<PatientItem>, item: PatientItem, _: Int ->
                 if (v != null) {
-                        navigation.navigateTo(Screens.Screen.addPatient(item.entry.id))
+                        navigation.navigateTo(Screens.Screen.patientScreen(item.entry.id))
                 }
                 false
             }

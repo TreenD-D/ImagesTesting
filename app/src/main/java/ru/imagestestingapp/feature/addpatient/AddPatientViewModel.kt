@@ -12,6 +12,7 @@ import ru.imagestestingapp.global.dispatcher.error.ErrorHandler
 import ru.imagestestingapp.global.dispatcher.event.EventDispatcher
 import ru.imagestestingapp.global.dispatcher.notifier.Notifier
 import ru.imagestestingapp.global.utils.asLiveData
+import ru.imagestestingapp.global.utils.context
 import ru.imagestestingapp.global.viewmodel.LoaderViewModel
 
 class AddPatientViewModel(
@@ -30,7 +31,7 @@ class AddPatientViewModel(
     private val _selectedPatientEntry = MutableLiveData<PatientEntry>()
     val selectedPatientEntry = _selectedPatientEntry.asLiveData()
 
-    fun getPatientData(patientId: Long){
+    fun getPatientData(patientId: Long) {
         viewModelScope.launch {
             getPatientByIdUseCase.invoke(patientId)
                 .fold(
@@ -48,11 +49,11 @@ class AddPatientViewModel(
         deletePatientUseCase.invoke(patientId).orNull()
     }
 
-    fun commitUserSelectedInfo(patientEntry: PatientEntry){
+    fun commitUserSelectedInfo(patientEntry: PatientEntry) {
         _selectedPatientEntry.value = patientEntry
     }
 
-    suspend fun updatePatient(patientId: Long){
+    suspend fun updatePatient(patientId: Long) {
         selectedPatientEntry.value?.let {
             val patientEntry = PatientEntry(
                 id = patientId,
@@ -60,14 +61,15 @@ class AddPatientViewModel(
                 lastName = it.lastName,
                 thirdName = it.thirdName,
                 birthDate = it.birthDate,
-                linkedImagesIds = savedPatientEntry.value?.linkedImagesIds ?:""
+                objectsIds = savedPatientEntry.value?.objectsIds ?: emptyList(),
+                actionsIds = savedPatientEntry.value?.actionsIds ?: emptyList(),
             )
             updatePatientUseCase.invoke(patientEntry)
         }
 
     }
 
-    suspend fun savePatient() {
+    suspend fun savePatient(actionsList: List<String>, objectList: List<String>) {
         selectedPatientEntry.value?.let {
             val patientEntry = PatientEntry(
                 id = -1,
@@ -75,7 +77,8 @@ class AddPatientViewModel(
                 lastName = it.lastName,
                 thirdName = it.thirdName,
                 birthDate = it.birthDate,
-                linkedImagesIds = savedPatientEntry.value?.linkedImagesIds ?:""
+                objectsIds = savedPatientEntry.value?.objectsIds ?: objectList,
+                actionsIds = savedPatientEntry.value?.actionsIds ?: actionsList,
             )
             addPatientUseCase.invoke(patientEntry)
         }

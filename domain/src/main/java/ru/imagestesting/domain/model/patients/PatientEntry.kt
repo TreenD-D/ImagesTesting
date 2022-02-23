@@ -6,5 +6,6 @@ data class PatientEntry(
     val lastName: String,
     val thirdName: String,
     val birthDate: String,
-    val linkedImagesIds: String,
+    val objectsIds: List<String>,
+    val actionsIds: List<String>
 )

@@ -27,4 +27,16 @@ interface PatientDao {
 
     @Update
     suspend fun update(patientEntity: PatientEntity)
+
+    @Query("SELECT objectsIds FROM patients WHERE id=:id")
+    suspend fun getObjects(id: Long): String
+
+    @Query("SELECT actionsIds FROM patients WHERE id=:id")
+    suspend fun getActions(id: Long): String
+
+    @Query("UPDATE patients SET objectsIds=:objects WHERE id=:id")
+    suspend fun updateObjects(objects: String, id: Long)
+
+    @Query("UPDATE patients SET actionsIds=:actions WHERE id=:id")
+    suspend fun updateActions(actions: String, id: Long)
 }

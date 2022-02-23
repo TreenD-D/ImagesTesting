@@ -5,8 +5,12 @@ import ru.imagestesting.domain.interactor.notification.RegisterFirebaseTokenUseC
 import org.koin.dsl.module
 import ru.imagestesting.domain.interactor.patient.AddPatientUseCase
 import ru.imagestesting.domain.interactor.patient.DeletePatientUseCase
+import ru.imagestesting.domain.interactor.patient.GetActionsUseCase
+import ru.imagestesting.domain.interactor.patient.GetObjectsUseCase
 import ru.imagestesting.domain.interactor.patient.GetPatientByIdUseCase
 import ru.imagestesting.domain.interactor.patient.GetPatientsUseCase
+import ru.imagestesting.domain.interactor.patient.UpdateActionsUseCase
+import ru.imagestesting.domain.interactor.patient.UpdateObjectsUseCase
 import ru.imagestesting.domain.interactor.patient.UpdatePatientUseCase
 
 internal val interactorModule = module {
@@ -18,4 +22,8 @@ internal val interactorModule = module {
     single { AddPatientUseCase(get(), get()) }
     single { DeletePatientUseCase(get(), get()) }
     single { UpdatePatientUseCase(get(), get()) }
+    single { GetActionsUseCase(get(), get()) }
+    single { GetObjectsUseCase(get(), get()) }
+    single { UpdateActionsUseCase(get(), get()) }
+    single { UpdateObjectsUseCase(get(), get()) }
 }

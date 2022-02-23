@@ -9,4 +9,8 @@ interface PatientsGateway {
     suspend fun addPatient(patient: PatientEntry): Long
     suspend fun deletePatient(id: Long)
     suspend fun updatePatient(patientEntry: PatientEntry)
+    suspend fun getObjects(id: Long): List<String>
+    suspend fun getActions(id: Long): List<String>
+    suspend fun updateObjects(objects: List<String>, id: Long)
+    suspend fun updateActions(actions: List<String>, id: Long)
 }

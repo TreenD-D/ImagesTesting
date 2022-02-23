@@ -12,5 +12,6 @@ data class PatientEntity(
     val lastName: String,
     val thirdName: String,
     val birthDate: String,
-    val linkedImagesIds: String,
+    val objectsIds: String,
+    val actionsIds: String
     )

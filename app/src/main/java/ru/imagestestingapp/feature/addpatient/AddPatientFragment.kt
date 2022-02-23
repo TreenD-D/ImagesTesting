@@ -14,6 +14,7 @@ import pro.appcraft.lib.utils.common.setGone
 import pro.appcraft.lib.utils.common.setVisible
 import ru.imagestesting.domain.model.patients.PatientEntry
 import ru.imagestestingapp.R
+import ru.imagestestingapp.Screens
 import ru.imagestestingapp.databinding.FragmentPatientAddBinding
 import ru.imagestestingapp.global.ui.fragment.BaseFragment
 import ru.imagestestingapp.global.utils.BindingProvider
@@ -74,7 +75,11 @@ class AddPatientFragment : BaseFragment<FragmentPatientAddBinding>() {
                     if (patientId != null)
                         viewModel.updatePatient(patientId!!)
                     else
-                        viewModel.savePatient()
+                    {
+                        val actionsList = requireContext().assets.list("actions")!!.toList()
+                        val objectsList = requireContext().assets.list("objects")!!.toList()
+                        viewModel.savePatient(actionsList = actionsList, objectList = objectsList)
+                    }
                     onBackPressed()
                 }
             }
@@ -88,7 +93,7 @@ class AddPatientFragment : BaseFragment<FragmentPatientAddBinding>() {
                     fragmentScope.launch {
                         viewModel.deletePatient(patientId!!)
                         dialog?.dismiss()
-                        onBackPressed()
+                        navigation.router.backTo(Screens.Screen.patients())
                     }
                 }
                 .setNegativeButton(R.string.cancel) { dialog, _ ->
@@ -128,7 +133,8 @@ class AddPatientFragment : BaseFragment<FragmentPatientAddBinding>() {
                 lastName = binding.lastnameInputView.text.toString(),
                 thirdName = binding.middlenameInputView.text.toString(),
                 birthDate = binding.birthDateInputView.text.toString(),
-                linkedImagesIds = ""
+                objectsIds = emptyList(),
+                actionsIds = emptyList()
             )
         )
 

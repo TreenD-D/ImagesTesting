@@ -1,5 +1,7 @@
 package ru.imagestesting.data.global
 
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 import ru.imagestesting.data.storage.entity.PatientEntity
 import ru.imagestesting.domain.model.patients.PatientEntry
 
@@ -10,7 +12,8 @@ object EntityMapper {
             lastName = model.lastName,
             thirdName = model.thirdName,
             birthDate = model.birthDate,
-            linkedImagesIds = model.linkedImagesIds
+            objectsIds = Json.encodeToString(model.objectsIds),
+            actionsIds = Json.encodeToString(model.actionsIds)
         )
     }
 
@@ -21,7 +24,8 @@ object EntityMapper {
             lastName = model.lastName,
             thirdName = model.thirdName,
             birthDate = model.birthDate,
-            linkedImagesIds = model.linkedImagesIds
+            objectsIds = Json.encodeToString(model.objectsIds),
+            actionsIds = Json.encodeToString(model.actionsIds)
         )
     }
 }

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:background="@color/background">
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/addPatientTitle"
@@ -22,20 +22,20 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.button.MaterialButton
-        style="@style/ShapeAppearanceOverlay.Material3.FloatingActionButton"
         android:id="@+id/deleteButton"
+        style="@style/ShapeAppearanceOverlay.Material3.FloatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        app:iconPadding="0dp"
-        android:visibility="gone"
         android:layout_marginHorizontal="@dimen/baseline_grid_small"
         android:layout_marginVertical="@dimen/baseline_grid"
-        app:iconGravity="textStart"
+        android:visibility="gone"
         app:icon="@drawable/ic_baseline_delete_24"
+        app:iconGravity="textStart"
+        app:iconPadding="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/addPatientTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/addPatientTitle"
         app:layout_constraintTop_toTopOf="@id/addPatientTitle"
-        app:layout_constraintBottom_toBottomOf="@id/addPatientTitle"
         app:layout_constraintVertical_bias="1.0" />
 
 
@@ -167,13 +167,12 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/baseline_grid_small"
         android:layout_marginVertical="@dimen/baseline_grid"
-        android:text="@string/back"
         android:backgroundTint="@color/appSecondary"
+        android:text="@string/back"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/saveButton"
         app:layout_constraintVertical_bias="1.0" />
-
 
 
     <androidx.constraintlayout.widget.Guideline
